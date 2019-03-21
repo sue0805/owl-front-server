@@ -157,7 +157,7 @@ export default {
     const token = document.location.href.split('token=')[1]
     if(!!token){
       this.$store.dispatch('APILOGIN', token)
-      window.location.href="http://localhost:8085/"
+      window.location.href="http://13.209.213.138/"
     } else if(localStorage.getItem('accessToken')) 
     return jwtDecode(localStorage.getItem('accessToken'))
       else

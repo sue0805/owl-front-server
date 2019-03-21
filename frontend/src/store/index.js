@@ -120,7 +120,7 @@ const store = new Vuex.Store({
           alert(data.message)
           commit('LOGIN', data)
           commit('SETMEMBER', data.member)
-         window.location.href="http://localhost:8085/"
+         window.location.href="http://13.209.213.138/"
         })
     },
     LOGOUT ({commit}) {
