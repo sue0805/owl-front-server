@@ -301,7 +301,7 @@ dmypy.json
 .venv/
 
 ### Vuejs ###
-front-server/backend/node_modules
-front-server/frontend/node_modules
+backend/node_modules
+frontend/node_modules
 .DS_Store
 docs/_book
