@@ -66,12 +66,12 @@ export default {
     },
     methods: {
         setHot(){
-            this.$http.get('http://localhost:8095/question/sorted/hot').then(response => {
+            this.$http.get('http://52.79.204.244/question/sorted/hot').then(response => {
             this.hots = response.data;
             
             if(this.$store.state.memberScraps != null){
                 this.$store.state.memberScraps.forEach(q => {
-                    this.scraps.push(q.link.replace("http://localhost:8095/question/sorted?id=", ''))
+                    this.scraps.push(q.link.replace("http://52.79.204.244/question/sorted?id=", ''))
                 })
             }
             response.data.forEach((hot, index) => {
@@ -96,7 +96,7 @@ export default {
             if(hotC.className.indexOf('show') === -1) {
                 this.show = true;
                 hotC.className += ' hot-showcontent';
-                this.$http.post(`http://localhost:8095/question/sorted/views/${hot.id}`)
+                this.$http.post(`http://52.79.204.244/question/sorted/views/${hot.id}`)
             }
             else {
                 hotC.className = 'hot-content';
@@ -105,7 +105,7 @@ export default {
             this.scraps = [];
             if(this.$store.state.memberScraps != null){
                 this.$store.state.memberScraps.forEach(q => {
-                    this.scraps.push(q.link.replace("http://localhost:8095/question/sorted?id=", ''));
+                    this.scraps.push(q.link.replace("http://52.79.204.244/question/sorted?id=", ''));
                 });
             }
             hot.isScrap = this.scraps.includes(hot.id + '');
@@ -118,9 +118,9 @@ export default {
             if(hot.isScrap){
                 this.$http({
                     method: 'delete',
-                    url: `http://localhost:8095/scrap`,
+                    url: `http://52.79.204.244/scrap`,
                     data: {
-                        link: 'http://localhost:8095/question/sorted?id=' + hot.id,
+                        link: 'http://52.79.204.244/question/sorted?id=' + hot.id,
                         title: hot.title
                     },
                     params:{
@@ -135,9 +135,9 @@ export default {
             } else {
                 this.$http({
                     method: 'post',
-                    url: `http://localhost:8095/scrap`,
+                    url: `http://52.79.204.244/scrap`,
                     data: {
-                        link: 'http://localhost:8095/question/sorted?id=' + hot.id,
+                        link: 'http://52.79.204.244/question/sorted?id=' + hot.id,
                         title: hot.title
                     },
                     params:{
@@ -155,7 +155,7 @@ export default {
             if(this.$store.state.mem_idx != null){
                 this.$http({
                     method: 'post',
-                    url: `http://localhost:8095/question/sorted/reply`,
+                    url: `http://52.79.204.244/question/sorted/reply`,
                     data: {
                         reply_content : this.reply,
                         reply_writer : this.$store.state.nickname,

@@ -48,10 +48,10 @@ export default {
                 this.searchText = this.$store.state.searchKeyword
         },
         setOthersData(){
-            this.$http.get(`http://localhost:8095/search/naver/blog/${this.searchText}/1/sim`)
+            this.$http.get(`http://52.79.204.244/search/naver/blog/${this.searchText}/1/sim`)
             .then(res_blog => {
                 this.setCombination(res_blog, 'nb')
-                this.$http.get(`http://localhost:8095/search/naver/cafearticle/${this.searchText}/1/sim`)
+                this.$http.get(`http://52.79.204.244/search/naver/cafearticle/${this.searchText}/1/sim`)
                 .then(res_cafe => {
                      this.setCombination(res_cafe, 'nc')
             })
@@ -142,7 +142,7 @@ export default {
             data.append("title", title)
             data.append("div", 'log')
             data.append("user", this.$store.state.email)
-            this.$http.post(`http://localhost:8095/log/searchresult/insert`, data)
+            this.$http.post(`http://52.79.204.244/log/searchresult/insert`, data)
         }, 
     }
 }

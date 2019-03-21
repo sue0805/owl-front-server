@@ -36,7 +36,7 @@ export default {
      computed:{
         naverLoginURL(){return `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${this.$store.getters.apis.naver[0]}&redirect_uri=http%3a%2f%2flocalhost%3a8095%2fapi%2fnaver%2fcallback&state=123`},
         kakaoLoginURL(){return `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${this.$store.getters.apis.kakao[0]}&redirect_uri=http%3a%2f%2flocalhost%3a8095%2fapi%2fkakao%2fcallback`},
-        githubLoginURL(){return `https://github.com/login/oauth/authorize?client_id=${this.$store.getters.apis.github[0]}&redirect_uri=http://localhost:8095/api/github/callback`}
+        githubLoginURL(){return `https://github.com/login/oauth/authorize?client_id=${this.$store.getters.apis.github[0]}&redirect_uri=http://52.79.204.244/api/github/callback`}
     },
     methods:{
         onSubmit(){
@@ -49,7 +49,7 @@ export default {
             form.append('email', this.email);
             form.append('nickname', this.nickname);
             form.append('password', this.password);
-            const uri = 'http://localhost:8095/member/signup/' 
+            const uri = 'http://52.79.204.244/member/signup/' 
             this.$http.post(`${uri}`, form)
             .then(res => {
                 alert(res.data);

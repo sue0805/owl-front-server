@@ -58,7 +58,7 @@ export default {
             if(this.input_review.length > 0){                
                 this.$http({
                     method: 'post',
-                    url: `http://localhost:8095/search/review`,
+                    url: `http://52.79.204.244/search/review`,
                     data: {
                         review: this.input_review,
                         writer: this.$store.state.nickname,
@@ -76,14 +76,14 @@ export default {
         },
         nextPage(){
             const nextPage = this.reviewPage.number + 1
-            this.$http.get(`http://localhost:8095/search/review/${this.keyword}/${nextPage}`).then(response => {
+            this.$http.get(`http://52.79.204.244/search/review/${this.keyword}/${nextPage}`).then(response => {
                 this.reviews = response.data.content
                 this.reviewPage = response.data
             });
         },
         prevPage(){
             const prevPage = this.reviewPage.number - 1
-            this.$http.get(`http://localhost:8095/search/review/${this.keyword}/${prevPage}`).then(response => {
+            this.$http.get(`http://52.79.204.244/search/review/${this.keyword}/${prevPage}`).then(response => {
                 this.reviews = response.data.content;
                 this.reviewPage = response.data;
             });
@@ -93,7 +93,7 @@ export default {
             this.setWikiData(this.keyword)
         },
         setWikiData(keyword){
-        this.$http.get(`http://localhost:8095/search/review/${this.keyword}/0`).then(res => {
+        this.$http.get(`http://52.79.204.244/search/review/${this.keyword}/0`).then(res => {
             this.reviews = res.data.content
             this.reviewPage = res.data;
         });

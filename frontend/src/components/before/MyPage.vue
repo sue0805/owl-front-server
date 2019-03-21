@@ -244,7 +244,7 @@ export default {
         removeScrap(scrap){
             this.$http({
                     method: 'delete',
-                    url: `http://localhost:8095/scrap`,
+                    url: `http://52.79.204.244/scrap`,
                     data: scrap,
                     params:{
                         mem_idx : this.memberInfo.mem_idx,
@@ -268,7 +268,7 @@ export default {
             }
             this.$http({
                 method: 'post',
-                url: 'http://localhost:8095/member/edit',
+                url: 'http://52.79.204.244/member/edit',
                 data: {
                     mem_idx: this.memberInfo.mem_idx,
                     nickname: document.querySelector('#mypage-nick').value
@@ -299,7 +299,7 @@ export default {
             }
             this.$http({
                 method: 'post',
-                url: 'http://localhost:8095/member/edit',
+                url: 'http://52.79.204.244/member/edit',
                 data: {
                     mem_idx: this.memberInfo.mem_idx,
                     password: newp
@@ -312,7 +312,7 @@ export default {
         delMember(){
             this.$http({
                 method: 'delete',
-                url: 'http://localhost:8095/member/delete',
+                url: 'http://52.79.204.244/member/delete',
                 data: {
                     mem_idx: this.memberInfo.mem_idx,
                     password: document.querySelector('#mypage-del-pw').value
@@ -341,11 +341,11 @@ export default {
 
             if(!ok) return;
 
-            if(type === 0) url = 'http://localhost:8095/question/unsolved'
-            else if(type === 1) url = 'http://localhost:8095/question/sorted'
+            if(type === 0) url = 'http://52.79.204.244/question/unsolved'
+            else if(type === 1) url = 'http://52.79.204.244/question/sorted'
             else {
-                if(sth.sortedQuestion != null) url = 'http://localhost:8095/question/sorted/reply'
-                else url = 'http://localhost:8095/question/unsolved/reply'
+                if(sth.sortedQuestion != null) url = 'http://52.79.204.244/question/sorted/reply'
+                else url = 'http://52.79.204.244/question/unsolved/reply'
             }
 
             this.$http({
@@ -377,7 +377,7 @@ export default {
                 }
                 question = tmp
             }
-            this.$http.post('http://localhost:8095/question/alert', {data : question}).then(res => {
+            this.$http.post('http://52.79.204.244/question/alert', {data : question}).then(res => {
                 question.forEach((q) => {
                     if(this.$store.state.unsolvedQuestions.indexOf(q) != -1)
                     this.$store.state.unsolvedQuestions.splice(this.$store.state.unsolvedQuestions.indexOf(q), 1)

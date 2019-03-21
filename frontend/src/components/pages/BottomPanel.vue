@@ -92,7 +92,7 @@ export default{
                         data.append("keywords", keywords)
                         data.append("keyword", this.searchText)
                         data.append("user", this.$store.state.email)
-                        this.$http.post(`http://localhost:8095/log/keyword/insert`, data).then(()=>{
+                        this.$http.post(`http://52.79.204.244/log/keyword/insert`, data).then(()=>{
                             this.$EventBus.$emit('setSearchHistory', this.$store.state.email)
                             this.$EventBus.$emit('goLoadingPage')
                         })
@@ -101,7 +101,7 @@ export default{
                         /* 키워드별 메타데이터 수집 구간 */
                         this.$http({
                             method: 'POST',
-                            url: `http://localhost:8095/log/searchdata/insert`,
+                            url: `http://52.79.204.244/log/searchdata/insert`,
                             data: keywords,
                             headers: {'content-type': 'application/json'}
                             })

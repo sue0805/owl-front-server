@@ -7,7 +7,7 @@ import animals from '../data/animals.json'
 
 Vue.use(Vuex)
 
-const resourceHost = 'http://localhost:8095'
+const resourceHost = 'http://52.79.204.244'
 
 const store = new Vuex.Store({
   state: {

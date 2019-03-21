@@ -81,7 +81,7 @@ export default {
       const token = this.getToken()
       this.backImg = localStorage.getItem("theme") != null ? localStorage.getItem("theme") : this.backImg
       if(token !== null){
-        this.$http.get(`http://localhost:8095/member?email=${token.email}`).then(res => {
+        this.$http.get(`http://52.79.204.244/member?email=${token.email}`).then(res => {
           this.$store.dispatch('SETMEMBER', res.data)
           this.setCustomKeywords(res.data.email)
           this.setSearchHistory(res.data.email)
@@ -221,7 +221,7 @@ export default {
       this.iswhite = !this.iswhite
     },
     getAPIs(){
-      this.$http.get('http://localhost:8095/apis').then(res => {
+      this.$http.get('http://52.79.204.244/apis').then(res => {
         this.$store.dispatch('SET_APIS', res.data)
         this.gcse()
         this.themeSet()
@@ -237,7 +237,7 @@ export default {
       s.parentNode.prepend(gcse);
     },
     refreshMember(){
-      this.$http.get(`http://localhost:8095/member/${this.$store.state.mem_idx}`).then(res => {
+      this.$http.get(`http://52.79.204.244/member/${this.$store.state.mem_idx}`).then(res => {
         this.$store.dispatch('SETMEMBER', res.data)
       })
     },
@@ -259,7 +259,7 @@ export default {
     const token = this.getToken()
     this.backImg = localStorage.getItem("theme") != null ? localStorage.getItem("theme") : this.backImg
     if(token !== null){
-      this.$http.get(`http://localhost:8095/member?email=${token.email}`).then(res => {
+      this.$http.get(`http://52.79.204.244/member?email=${token.email}`).then(res => {
         this.$store.dispatch('SETMEMBER', res.data)
         this.setCustomKeywords(res.data.email)
         this.setSearchHistory(res.data.email)

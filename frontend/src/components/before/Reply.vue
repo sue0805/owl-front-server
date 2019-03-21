@@ -65,11 +65,11 @@ export default {
     methods: {
         setQuestion(re){
         this.setScrap()
-        this.$http.get(`http://localhost:8095/question/unsolved/random`) 
+        this.$http.get(`http://52.79.204.244/question/unsolved/random`) 
         .then(response => { 
             this.$http({
                 method: 'post',
-                url: `http://localhost:8095/question/unsolved/reply/list`,  
+                url: `http://52.79.204.244/question/unsolved/reply/list`,  
                 data: { id : response.data.id}
             }).then(response => {
                 this.unsolvedQuestions = response.data
@@ -96,7 +96,7 @@ export default {
         setScrap(){
         if(this.$store.state.memberScraps != null){
             this.$store.state.memberScraps.forEach(scrap => {
-                this.scraps.push(scrap.link.replace("http://localhost:8095/question/unsolved/find/", ''))
+                this.scraps.push(scrap.link.replace("http://52.79.204.244/question/unsolved/find/", ''))
             })
         }
         },
@@ -105,7 +105,7 @@ export default {
             if(this.$store.state.mem_idx != null){
                 this.$http({
                     method:'post',
-                    url:`http://localhost:8095/question/unsolved/reply`,
+                    url:`http://52.79.204.244/question/unsolved/reply`,
                     data:{
                         reply_content : this.reply,
                         reply_writer : this.$store.state.nickname,
@@ -130,9 +130,9 @@ export default {
             if(this.isScrap){                
                 this.$http({
                     method: 'delete',
-                    url: `http://localhost:8095/scrap`,
+                    url: `http://52.79.204.244/scrap`,
                     data: {
-                        link: 'http://localhost:8095/question/unsolved/find/' + question.id,
+                        link: 'http://52.79.204.244/question/unsolved/find/' + question.id,
                         title: question.title
                     },
                     params:{
@@ -145,9 +145,9 @@ export default {
             } else {
                 this.$http({
                     method: 'post',
-                    url: `http://localhost:8095/scrap`,
+                    url: `http://52.79.204.244/scrap`,
                     data: {
-                        link: 'http://localhost:8095/question/unsolved/find/' + question.id,
+                        link: 'http://52.79.204.244/question/unsolved/find/' + question.id,
                         title: question.title
                     },
                     params:{

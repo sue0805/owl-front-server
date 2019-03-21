@@ -63,7 +63,7 @@ export default {
     },
     methods:{
         setQuestionList(){
-        this.$http.get(`http://localhost:8095/question/sorted/list`, { params: {keyword: this.$store.state.mainKeyword, page: this.currentPage }}) // axios 요청으로 질문 리스트 받아옴
+        this.$http.get(`http://52.79.204.244/question/sorted/list`, { params: {keyword: this.$store.state.mainKeyword, page: this.currentPage }}) // axios 요청으로 질문 리스트 받아옴
         .then(res => {
             if(!res.data.length)
                 this.isNull = true
@@ -90,14 +90,14 @@ export default {
             }
         },
         getMoreQuestions(){
-            this.$http.get(`http://localhost:8095/question/sorted/list`, { params: {keyword: this.$store.state.searchKeyword, page: this.currentPage }}) // axios 요청으로 질문 리스트 받아옴
+            this.$http.get(`http://52.79.204.244/question/sorted/list`, { params: {keyword: this.$store.state.searchKeyword, page: this.currentPage }}) // axios 요청으로 질문 리스트 받아옴
             .then(res => { 
                 res.data.forEach(i => {i.content = i.content.split('<br/>').join('\n'); this.questions.push(i);})
             })
         },
         showQuestion(question){
             this.logQuestion(question.id)
-            this.$http.get(`http://localhost:8095/question/sorted?id=${question.id}`)
+            this.$http.get(`http://52.79.204.244/question/sorted?id=${question.id}`)
             question.type = 1
             this.$EventBus.$emit('showQuestion', question)
         },
@@ -105,7 +105,7 @@ export default {
             let data = new FormData()
             data.append("questionId", questionId)
             data.append("user", this.$store.state.email)
-            this.$http.post(`http://localhost:8095/log/question/sorted/insert`, data)
+            this.$http.post(`http://52.79.204.244/log/question/sorted/insert`, data)
         },
         showWrite(){
             if(this.$store.state.mem_idx === null){

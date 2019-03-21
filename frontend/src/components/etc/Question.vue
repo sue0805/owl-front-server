@@ -61,7 +61,7 @@ export default {
         }
         else if(this.typeCode === 2){
             if(this.data.unsolvedQuestion != null) {
-                this.$http.get(`http://localhost:8095/question/unsolved/find/${this.data.unsolvedQuestion.id}`).then(res => {
+                this.$http.get(`http://52.79.204.244/question/unsolved/find/${this.data.unsolvedQuestion.id}`).then(res => {
                     this.typeCode = 0
                     res.data.type = 0
                     this.question = res.data
@@ -70,7 +70,7 @@ export default {
                     this.goReady()
                 })
             } else if(this.data.sortedQuestion != null) {
-                this.$http.get(`http://localhost:8095/question/sorted?id=${this.data.sortedQuestion.id}`).then(res => {
+                this.$http.get(`http://52.79.204.244/question/sorted?id=${this.data.sortedQuestion.id}`).then(res => {
                     this.typeCode = 1
                     res.data.type = 1
                     this.question = res.data
@@ -124,11 +124,11 @@ export default {
         },
         checkScrap(){
             let url = ''
-            if (this.typeCode === 0) url ='http://localhost:8095/question/unsolved/find/'
-            else if(this.typeCode === 1) url= 'http://localhost:8095/question/sorted?id='
+            if (this.typeCode === 0) url ='http://52.79.204.244/question/unsolved/find/'
+            else if(this.typeCode === 1) url= 'http://52.79.204.244/question/sorted?id='
             else {
-                if(this.data.unsolvedQuestion != null) url ='http://localhost:8095/question/unsolved/find/'
-                else if(this.data.sortedQuestion != null) url= 'http://localhost:8095/question/sorted?id='
+                if(this.data.unsolvedQuestion != null) url ='http://52.79.204.244/question/unsolved/find/'
+                else if(this.data.sortedQuestion != null) url= 'http://52.79.204.244/question/sorted?id='
             }
             let scraps = []
             if(this.$store.state.memberScraps != null){
@@ -162,13 +162,13 @@ export default {
                 return
             }
             let url = ''
-            if (this.typeCode === 0) url ='http://localhost:8095/question/unsolved/find/'
-            else if(this.typeCode === 1) url= 'http://localhost:8095/question/sorted?id='
+            if (this.typeCode === 0) url ='http://52.79.204.244/question/unsolved/find/'
+            else if(this.typeCode === 1) url= 'http://52.79.204.244/question/sorted?id='
 
             if(this.isScrap){                
                 this.$http({
                     method: 'delete',
-                    url: `http://localhost:8095/scrap`,
+                    url: `http://52.79.204.244/scrap`,
                     data: {
                         link: url + this.question.id,
                         title: this.question.title
@@ -185,7 +185,7 @@ export default {
             } else {
                 this.$http({
                     method: 'post',
-                    url: `http://localhost:8095/scrap`,
+                    url: `http://52.79.204.244/scrap`,
                     data: {
                         link: url + this.question.id,
                         title: this.question.title
@@ -206,10 +206,10 @@ export default {
             let ok = window.confirm("정말 삭제 하시겠습니까?")
             if(!ok) return;
 
-            if(sth.sortedQuestion != null) url = 'http://localhost:8095/question/sorted/reply'
-            else if(sth.unsolvedQuestion != null) url = 'http://localhost:8095/question/unsolved/reply'
-            else if(this.typeCode === 0) url = 'http://localhost:8095/question/unsolved'
-            else if(this.typeCode === 1) url = 'http://localhost:8095/question/sorted'
+            if(sth.sortedQuestion != null) url = 'http://52.79.204.244/question/sorted/reply'
+            else if(sth.unsolvedQuestion != null) url = 'http://52.79.204.244/question/unsolved/reply'
+            else if(this.typeCode === 0) url = 'http://52.79.204.244/question/unsolved'
+            else if(this.typeCode === 1) url = 'http://52.79.204.244/question/sorted'
             this.$http({
                 method: 'delete',
                 url: url,
@@ -245,8 +245,8 @@ export default {
                 pos = this.replies.indexOf(reply)
             }
 
-            if(this.typeCode === 0) url = 'http://localhost:8095/question/unsolved/reply'
-            else url = 'http://localhost:8095/question/sorted/reply'
+            if(this.typeCode === 0) url = 'http://52.79.204.244/question/unsolved/reply'
+            else url = 'http://52.79.204.244/question/sorted/reply'
 
 
             this.$http({
@@ -277,7 +277,7 @@ export default {
         },
         selectReply(reply){
             this.ready = false
-            this.$http.get('http://localhost:8095/question/unsolved/select', {params: {id : this.question.id, reply_id : reply.reply_idx}}).then(res => {
+            this.$http.get('http://52.79.204.244/question/unsolved/select', {params: {id : this.question.id, reply_id : reply.reply_idx}}).then(res => {
                 this.question = res.data
                 this.typeCode = 1
                 this.goReady()

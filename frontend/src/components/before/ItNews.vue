@@ -22,7 +22,7 @@ export default {
         }
     },
     created(){
-        this.$http.get("http://localhost:8095/news").then(response => {
+        this.$http.get("http://52.79.204.244/news").then(response => {
             this.news = response.data;
             this.ready = true;
         });

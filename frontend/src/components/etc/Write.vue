@@ -29,8 +29,8 @@ export default {
         edit(){
             let url = '';
 
-            if(this.type == 0) url = 'http://localhost:8095/question/unsolved'
-            else url = 'http://localhost:8095/question/sorted'
+            if(this.type == 0) url = 'http://52.79.204.244/question/unsolved'
+            else url = 'http://52.79.204.244/question/sorted'
 
             let form = document.querySelectorAll('.write-askbox input, .write-askbox textarea')
             let nickname = document.querySelector('#anonymous-chkbox').checked ? '익명의 ' + animals[Math.floor(Math.random() * animals.length)] : this.$store.state.nickname

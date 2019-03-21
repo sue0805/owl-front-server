@@ -70,7 +70,7 @@ export default {
         })
         },
         YoutubeCrawling(){
-            this.$http.get(`http://localhost:8095/search/youtube/${this.$store.state.searchKeyword}`).then(res => {
+            this.$http.get(`http://52.79.204.244/search/youtube/${this.$store.state.searchKeyword}`).then(res => {
                 this.lectures = res.data;
                 this.ready = true;
         })

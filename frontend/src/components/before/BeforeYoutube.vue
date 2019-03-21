@@ -87,11 +87,11 @@ export default {
             data.append("link", link)
             data.append("div", "youtube")
             data.append("user", this.$store.state.email)
-            this.$http.post(`http://localhost:8095/log/mediacontent/insert`, data)
+            this.$http.post(`http://52.79.204.244/log/mediacontent/insert`, data)
         },
         insertYoutubeData(keywords){
             const getYoutubeData = keyword => {
-             this.$http.get(`http://localhost:8095/search/youtube/${keyword}`).then(res =>{
+             this.$http.get(`http://52.79.204.244/search/youtube/${keyword}`).then(res =>{
                  let youtubeData = {}
                  for(let j in res.data){
                     const i = res.data[j]
@@ -103,7 +103,7 @@ export default {
                  }
                 this.$http({
                     method: 'POST',
-                    url: `http://localhost:8095/log/metadata/youtube/insert?keyword=${keyword}`,
+                    url: `http://52.79.204.244/log/metadata/youtube/insert?keyword=${keyword}`,
                     data: youtubeData,
                     headers: {'content-type': 'application/json'}
                     })
