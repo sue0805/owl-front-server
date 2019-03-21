@@ -1,0 +1,133 @@
+@import '../utils/variables';
+
+.write-askbox{
+    box-sizing: border-box;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto; padding: 0;
+    width: 70%;
+    height: 80%;
+    top: 5%;
+    left: 15%;
+    box-shadow: none;
+    border-radius: 6px;
+    border: none;
+    overflow: hidden;
+    background-color: transparent;
+
+    & ::placeholder{
+        margin: 0; padding: 0;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: $font-basicLight;
+    }
+}
+
+
+.write-askbox-wrap{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;;
+    flex-flow: column;
+    margin: 0; padding: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    border: $component-content-border;
+    box-shadow: $component-content-boxShadow;
+    background-color: $component-main-Back;
+}
+
+.write-askbox .title{
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 5px 5px 5px 15px;
+    width: 90%;
+    height: 7%;
+    border: $component-content-border;
+    border-radius: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: $component-content-Back;
+    color: $font-basic;
+    &:focus{
+        outline: 0;
+    }
+}
+
+.write-ask-textarea{
+    resize: none;
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 15px 5px 5px 15px;
+    width: 90%;
+    height: 90%;
+    box-shadow: $component-content-boxShadow;
+    border: $component-content-border;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: $component-content-Back;
+    color: $font-basic;
+    &:focus{
+        outline: 0;
+    }
+}
+
+.write-askbox i{
+    margin: 15px; padding: 0;
+    align-self: flex-end;
+    font-size: 20px;
+    cursor: pointer;
+    color: $font-basicDark;
+}
+
+.fa-times{
+    padding-left: 5px;
+}
+
+.write-view{
+    margin: 1em;
+    padding: 1em;
+    width: 50%;
+    height: 90%;
+    float: left;
+    border: 0;
+    background-color: #f8f8f8;
+    border-radius: 6px;
+    color: #666;
+    overflow-y: auto;
+}
+
+.write-send-i{
+    margin-top: -1em;
+    margin-right: 0px;
+}
+
+@media only screen and (min-width: 360px){
+    .write-askbox{
+        width: 90%;
+        left: 5%;
+    }
+}
+@media only screen and (min-width: 900px){
+    .write-askbox{
+        width: 80%;
+        left: 10%;
+    }
+}
+@media only screen and (min-width: 1100px){
+    .write-askbox{
+        width: 75%;
+        left: 12.5%;
+    }
+}
+
+@media only screen and (min-width: 1300px){
+    .write-askbox{
+        width: 70%;
+        left: 15%;
+    }
+
+}

@@ -1,0 +1,188 @@
+@import '../utils/variables';
+
+@media only screen and (min-width: 320px) {
+    .before, .after{ /*before after 전체 div*/
+        margin: 0; padding: 0;
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: minmax(74px, 74px);
+     }
+     .before{
+        grid-template-areas:
+        "notice"
+        "notice"
+        "mypage"
+        "mypage"
+        "hot"
+        "hot"
+        "hot"
+        "hot"
+        "hot"
+        "hot"
+        "hot"
+        "study"
+        "study"
+        "reply"
+        "reply"
+        "reply"
+        "reply"
+        "reply"
+        "itnews"
+        "itnews"
+        "itnews"
+        "etc"
+        "etc"
+    }
+    .after{
+        grid-template-areas:
+        "mypage mypage"
+        "mypage mypage"
+        "others others"
+        "others others"
+        "others others"
+        "others others"
+        "others others"
+        "others others"
+        "data data"
+        "data data"
+        "official official"
+        "official official"
+        "official official"
+        "official official"
+        "sorted sorted"
+        "sorted sorted"
+    }
+    .searchInputCt{
+        // width: 50%;
+        min-width: 0;
+    }
+    .searchBtn{
+        min-width: 55px;
+    }
+    .signBtnCt{
+        display: none;
+        right: -10px;
+    }
+    .theme-image-switch,.theme-light-switch__label{
+        display: none;
+    }
+    .ItNews li{
+        text-align: center;
+    }
+
+}
+@media only screen and (min-width: 690px) {
+     .before{
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: minmax(74px, 74px);
+        grid-template-areas:
+        "mypage hot"
+        "mypage hot"
+        "reply hot"
+        "reply hot"
+        "reply hot"
+        "reply hot"
+        "reply hot"
+        "study study"
+        "study study"
+        "itnews notice"
+        "itnews notice"
+        "itnews notice"
+        "itnews etc"
+        "itnews etc"
+    }
+    .after{
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(74px, 74px);
+        grid-template-areas:
+        "mypage others others"
+        "mypage others others"
+        "official others others"
+        "official others others"
+        "official others others"
+        "official others others"
+        "official others others"
+        "official others others"
+        "sorted sorted sorted"
+        "sorted sorted sorted"
+        "data data data"
+        "data data data"
+    }
+
+    .searchInputCt{
+        min-width: 600px;
+    }
+
+
+    .AppIconCt{
+        display: flex;
+        left: 0;
+    }
+
+    .ItNews li{
+        text-align: start;
+    }
+    .theme-image-switch{
+        display: flex;
+    }
+} 
+
+@media only screen and (min-width: 790px){
+    .theme-light-switch__label{
+        display: flex;
+    }
+}
+@media only screen and (min-width: 900px){
+    .signBtnCt{
+        display: flex;
+    }
+}
+@media only screen and (min-width: 920px) {
+    
+}
+@media only screen and (min-width: 1050px) {
+    .before, .after{
+
+        grid-auto-rows: minmax(74px, 74px);
+    }
+    .before{
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+        "mypage reply hot"
+        "mypage reply hot"
+        "etc reply hot"
+        "etc reply hot"
+        "etc reply hot"
+        "study study hot"
+        "study study hot"
+        "notice itnews hot"
+        "notice itnews hot"
+        "notice itnews hot"
+    }
+    .after{
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-areas:
+        "mypage mypage others others others others"
+        "mypage mypage others others others others"
+        "official official others others others others"
+        "official official others others others others"
+        "official official others others others others"
+        "official official others others others others"
+        "official official others others others others"
+        "official official others others others others"
+        "data data data sorted sorted sorted"
+        "data data data sorted sorted sorted"
+    }
+ 
+    .signBtnCt{
+        display: flex;
+        right: 15px;
+    }
+
+    .AppIconCt{
+        left: 15px;
+    }
+
+    .searchInputCt{
+        bottom: 1em;
+    }
+}

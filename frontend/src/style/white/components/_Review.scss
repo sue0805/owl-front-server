@@ -1,0 +1,62 @@
+@import '../utils/variables';
+
+.review{
+    margin: 0; padding: 0;
+}
+.review-header{
+    position: sticky;
+    top: 0;
+    text-align: center;
+    background-color: white;
+    padding-top: 10px;
+    margin-bottom: 1em;
+}
+h2{
+    margin: 5px;
+    color: $font-basic;
+    display: inline-block;
+}
+.review hr{
+    border: 0.5px solid #777;
+}
+
+.review-hr{
+    margin: 10px 0;
+    width: 100%;
+    border: 0.5px dashed #999;
+}
+
+.review-sub{
+    display: inline-block;
+    font-size: 1.3vh;
+    color: $font-basic;
+    text-align:end;
+}
+li{
+    list-style-type: none;
+}
+li:hover{
+    opacity: 0.8;
+}
+ul{
+    padding-inline-start: 5%;
+    padding-inline-end: 5%;
+    font-size: 1.6vh;
+}
+.review-h2-right{
+    float: right;
+    cursor: pointer;
+}
+.review-big{
+    position: absolute;
+    top: -45vh;
+    width: 50vw;
+    z-index: 1;
+    height: 80vh;
+    margin: 5vh 0.5vw;
+    overflow-y: auto; 
+}
+.review-big:hover{
+    width: 51vw;
+    height: 81vh;
+}

@@ -1,0 +1,16 @@
+@import '../utils/variables';
+
+ .rec-comp{
+    margin: 0; padding: 0;
+    display: inline-block;
+    padding: 6px;
+    border: solid white 3px;
+    background-color: white;
+    font-weight: 600;
+    border-radius: 6px;
+    margin: 4.5% 0% 0% 2.5%;
+}
+
+.rec-comp:hover{
+   border: solid black 3px;
+}

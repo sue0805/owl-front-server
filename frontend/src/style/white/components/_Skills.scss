@@ -1,0 +1,80 @@
+@import '../utils/variables';
+
+.skills-wrap{
+    background-color: white;
+    margin: 1em auto;
+    padding: 1em;
+    width: 95%;
+    height: 90%;
+    border: 1px solid rgb(220, 220, 220);
+    border-bottom: 1.5px solid rgb(190,190,190);
+    border-radius: 6px;
+}
+
+.skills-contents{
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+    flex-flow: row wrap;
+    margin: 0;
+    padding: 1em 0;
+    width: 100%;
+    height: 100%;
+}
+
+.skills-circle{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    width: 100px;
+    height: 100px;
+    margin: 1em;
+    cursor: pointer;
+    text-align: center;
+    background-color: white;
+    border: 1px solid rgb(220, 220, 220);
+    border-bottom: 2px solid rgb(190,190,190);
+    border-radius: 50px;
+}
+
+.skills-circle:hover{
+    background-color: #e0e0e0;
+}
+
+.skills-box img{
+    width: 40px;
+    height: 40px;
+}
+
+.skills-circle img{
+    width: 45px;
+    height: 45px;
+}
+
+.skills-boxtitle{
+    width: auto;
+    height: auto;
+    padding: 0.5em;
+    border-radius: 5px;
+    font-size: 0.7em;
+    color: #444;
+    font-weight: 700;
+    opacity: 0.8;
+    word-wrap: break-word;
+}
+
+.skills-info{
+    box-sizing: border-box;
+    margin: 1em auto;
+    padding: 1em;
+    width: 100%;
+    height: 30%;
+    border: $component-content-border;
+    border-radius: 6px;
+    box-shadow: $component-content-boxShadow;
+    background-color: $component-main-Back;
+    // opacity: 0.7;
+    color: $font-basic;
+}

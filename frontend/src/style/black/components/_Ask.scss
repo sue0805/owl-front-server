@@ -1,0 +1,98 @@
+@import '../utils/variables';
+
+.ask{
+   margin: 0; padding: 0;
+}
+
+.ask-text{
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+    font-weight: 600;
+    display: inline-block;
+}
+.ask-input{
+    position: relative;
+    margin-top: 2vh;
+    width:60%;
+    height:9vh;
+    border: solid lightgray 2px;
+    border-radius: 5px;
+}
+.ask-input:hover {
+  border: solid gray 2px;
+}
+.ask hr{
+   border: 1px solid #777;
+   margin: 0.5vh 0 0 0;
+   width: 44em;
+}
+
+#ask-form-background{
+   position: fixed;
+   width:100%;
+   height:100vh;
+   background-color: rgba(0, 0, 0, 0.2);
+   left:0;
+   top:0;
+}
+#ask-form{
+   background-color: white;
+   width: 70%;
+   height: 63vh;
+   position: fixed;
+   left: 30%;
+   top: 25%;
+   text-align: center;
+   font-size: 13px;
+   border-radius: 5px;
+}
+#ask-form-title{
+   margin-top: 3vh;
+   width: 85%;
+   height: 5vh;
+   background-color: white;
+   border: solid 2px lightgray;
+   border-radius: 5px;
+}
+#ask-form-body{
+   margin-top: 3vh;
+   width: 86%;
+   height: 37.5vh;
+   border: solid 2px lightgray;
+   border-radius: 5px;
+}
+#ask-form-submit{
+   color:$font-basic;
+   width: 87%;
+   /* border: solid 2px silver; */
+   border: 0;
+   padding: 8px;
+   border-radius: 5px;
+   background-color:rgb(47, 136, 172);
+   font-weight: 400;
+   font-size: 1.2em;
+}
+#ask-form-submit:hover{
+   background-color:rgb(108, 184, 214);
+}
+.ask-form-bot{
+   margin-top: 1vh;
+}
+.ask-form-end{
+   margin-top: 3vh;
+}
+.ask-done{
+   text-align: center;
+   margin-top: 2vh;
+}
+.ask-done{
+   position: relative;
+   width:80%;
+   display:inline-block;
+}
+// .fade-enter-active, .fade-leave-active {
+//    transition: opacity 1.2s;
+// }
+// .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+//    opacity: 0;
+// }

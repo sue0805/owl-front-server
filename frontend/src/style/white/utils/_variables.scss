@@ -1,0 +1,32 @@
+//component style 
+$window-bar: linear-gradient( to top, #3A3936, rgb(115, 96, 88) );
+$window-icon: #534A45;
+
+$component-main-Back : #F2F1F0;
+$component-main-boxShadow : 0px 0px 15px 2px rgba(0,0,0,0.4);
+$component-content-Back : #FFFFFF;
+$component-content-Sub : #777777;
+$component-content-SubLight : #e0e0e0;
+$component-content-SubDark : rgb(207, 206, 206);
+
+$component-content-border : 1px solid rgb(220,220,220);
+$component-content-boxShadow : 0px 2px 1px -1px rgba(0,0,0,0.4);
+
+//font
+$font-basic: #3A3936;
+$font-basicLight: rgb(194, 194, 194);
+$font-basicDark: #424452;
+$font-title: #F0F0F0;
+$font-white: #FFFFFF;
+$font-Dark: #222222;
+
+//button style
+$button-base:  #F75F1C;
+$button-base-light: rgb(235, 149, 112);
+$button-gradient: linear-gradient( to top, $button-base, $button-base-light);
+$button-pink: rgb(201, 139, 139);
+$button-pink-light: rgb(228, 168, 168);
+
+//search
+$search-base : $component-content-SubLight;
+$search-hover : $component-content-SubDark

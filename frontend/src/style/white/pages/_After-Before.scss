@@ -1,0 +1,72 @@
+@import '../utils/variables';
+
+.before, .after{ /*before after 전체 div*/
+    margin: 0; padding: 0;
+    display: grid;
+    grid-gap: 10px;
+    box-sizing: border-box;
+    overflow: auto;
+    width: 100%;
+    min-height: 840px;
+    height: max-content;
+    padding: 10px;
+    padding-bottom: 60px;
+    color: $font-basic;
+}
+
+.compHead{
+    margin: -10px -10px 0 -10px;
+    position: relative;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 0.6rem;
+    background: $window-bar;
+    color: #DDDDDD;
+}
+
+.compGrid{ /* 모든 컴포넌트박스가 가지는 스타일 */
+    overflow: hidden;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: $component-main-boxShadow;
+    background-color: $component-main-Back; /* 컴포넌트 박스 컬러*/
+}
+
+.official{
+    grid-area: official;
+}
+.sorted{
+    grid-area: sorted;
+}
+.data{
+    grid-area: data;
+    background-color: transparent;
+    box-shadow: none;
+}
+.others{
+    grid-area: others;
+}
+.reply{
+    grid-area: reply;
+}
+.notice{
+    grid-area: notice;
+}
+.hot{
+    grid-area: hot;
+}
+.study{
+    grid-area: study;
+    background-color: transparent;
+    box-shadow: none;
+}
+.mypage{
+    grid-area: mypage;
+}
+.itnews{
+    grid-area: itnews;
+}
+.etc{
+    grid-area: etc;
+}

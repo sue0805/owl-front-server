@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+@import '../utils/variables';
+
+.credits-main{
+    background-color: #222;
+    width: 97%;
+    height: 300px;
+    margin: 1em;
+    margin-top: 5em;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.credits-wrap{
+    position: relative;
+    font-size: 1em;
+    font-weight: 1000;
+    font-family: 'Press Start 2P';
+    text-align: center;
+    text-transform: uppercase;
+    font-style: italic;
+    color: white;
+    -webkit-animation: 30s credits linear infinite;
+    animation: 30s credits linear infinite;
+}
+
+.credits-title{
+    margin-bottom: 50px;
+    font-size: 45px;
+}
+
+.credits-name{
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.credits-sub{
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.credits-noise{
+    position: absolute;
+    top: -500px;
+    right: -500px;
+    bottom: -500px;
+    left: -500px;
+    background: transparent url(https://www.dropbox.com/s/h7ab1c82ctzy83n/noise.png?raw=1) 0 0;
+    background-size: 320px 320px;
+    opacity: .2;
+    animation: noise 1s steps(8,end) infinite both;
+}
+
+@-webkit-keyframes credits {
+    0% { top:  100%; }
+  100% { top: -200%; }
+}
+
+@keyframes credits {
+    0% { top:  100%; }
+  100% { top: -200%; }
+}
+
+@keyframes noise {
+  0% {
+    transform: translateX(0px,0px); }
+  10% {
+    transform: translate(-100px, 100px);
+  }
+  20% {
+    transform: translate(150px, -100px);
+  }
+  30% {
+    transform: translate(-100px,100px);
+  }
+  40% {
+    transform: translate(100px, -150px);
+  }
+  50% {
+    transform: translate(-100px, 200px);
+  }
+  60% {
+    transform: translate(-200px, -100px);
+  }
+  70% {
+    transform: translateY(50px, 100px);
+  }
+  80% {
+    transform: translate(100px, -150px);
+  }
+  90% {
+    transform: translate(0px, 200px);
+  }
+  100% {
+    transform: translate(-100px, 100px);
+  }
+}

@@ -1,0 +1,231 @@
+@import '../utils/variables';
+
+.hot{
+    overflow: auto;
+}
+
+.hot-wrap{
+}
+
+.hot-board{
+    margin-top: 5px;
+    margin-bottom: 1em;
+    width: 100%;
+    height: 565px;
+    overflow-y: auto;
+}
+.hot-content{
+    background-color: $component-content-Back;
+    color: $font-basic;
+    padding: 10px;
+    width: 90%;
+    height: 60px;
+    margin: 10px 2px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    overflow: hidden;
+    border: $component-content-border;
+
+
+    &:hover{
+        background: $window-bar;
+    }
+}
+
+.hot-content-writer-wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    cursor: pointer;
+
+    & i{
+        font-size: 25px;
+        padding: 5px;
+        display: block;
+    }
+
+    .hot-writer{
+        font-weight: bold;
+        margin: 0;
+        padding: 3px 6px;
+        max-width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border-radius: 5px;
+        background-color: $component-content-Sub;
+        color: $font-basicLight;
+    }
+    .hot-tags{
+        display: -webkit-box;
+        width: 150px;
+        max-width: 200px;
+        padding: 2px;
+        overflow: hidden;
+        text-align: right;
+        text-overflow: ellipsis;
+        word-break:break-all;
+        color: $font-basicLight;
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp:2;
+        background-color: transparent;
+        border-radius: 5px;
+    }
+
+}
+.hot-content-title-wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;;
+    margin-top: 5px;
+    cursor: pointer;
+
+
+    .hot-title{
+        margin: 0; padding: 0;
+        margin-right: 15px;
+        max-width: max-content;
+        height: 20px;
+        line-height: 20px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    } 
+    .hot-replynum{
+        padding: 3px;
+        min-width: 20px;
+        text-align: center;
+        color: $font-basic;
+        border-radius: 10px;
+        background-color: rgb(233, 130, 130);
+    }
+}
+.hot-content-writer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: nowrap row;
+    width: max-content;
+}
+
+.hot-showcontent{
+    height: auto;
+    &:hover{
+        background: $component-content-Back;
+    }
+}
+
+.hot-content hr{
+    margin: 1em;
+    clear: both;
+    width: 100%;
+    margin-left: 0;
+    border: 0.5px solid #ccc;
+
+}
+
+.hot-chart-wrap{
+    background-color: $component-content-Back;
+    height: 180px;
+    width: calc(100%-10px);
+    margin: 1px;
+    padding: 10px 20px 10px 0px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: $component-content-border;
+}
+
+.apexcharts-grid{
+}
+.apexcharts-svg{
+}
+.apexcharts-canvas{
+}
+.apexcharts-inner .apexcharts-graphical{
+}
+.hot code{
+    white-space: pre-wrap;
+    font-size: 12px;
+    cursor: default;
+
+}
+
+.hot-content-div{
+    background-color: $component-content-Back;
+    border-radius: 6px;
+    padding: 0.5em;
+    color: $font-basic;
+
+    & *{
+        background-color: $component-content-Back;
+        color: $font-basic;
+    }
+}
+
+.hot-content-div i{
+    color: rgb(255, 196, 0);
+    display: block;
+    clear: both;
+    font-size: 20px;
+    float: right;
+    cursor: pointer;
+
+}
+
+.hot-content-reply{
+    padding: 0.5em;
+    background-color: $component-content-SubLight;
+    border-radius: 6px;
+    margin: 1em 0;
+    border: $component-content-border;
+    box-shadow: $component-content-boxShadow;
+
+}
+
+.hot-reply-writer{
+    float: left;
+    background-color: $component-content-Back;
+    padding: 3px 5px;
+    border-radius: 10px;
+    margin: 0.5em;
+
+}
+
+.hot-reply-date{
+    font-size: 11px;
+    color: $font-basic;
+    float: right;
+    margin: 1em;
+
+}
+
+.hot-reply-content{
+    display: block;
+    clear: both;
+    padding: 0.5em;
+    margin: 0.5em;
+    width: 90%;
+    background-color: $component-content-Back;
+    border-radius: 6px;
+    word-break: break-all;
+}
+
+.hot-content input[type=text]{
+    width: 96%;
+    height: 30px;
+    padding: 5px;
+    background-color: $component-content-Back;
+    border: $component-content-border;
+    border-radius: 6px;
+    
+    &:focus{
+        outline:none;
+        border: 1px solid $button-base;
+        border-radius: 5px;
+    }
+
+    &::placeholder{
+        padding: 13px;
+        color: $font-basicDark;
+    }
+
+}

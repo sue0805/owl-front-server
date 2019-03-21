@@ -1,0 +1,171 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(//fonts.googleapis.com/css?family=Ubuntu);
+@import url(//use.fontawesome.com/releases/v5.7.2/css/all.css);
+@import url(//cdn.jsdelivr.net/highlight.js/8.7/styles/github.min.css);
+@import './utils/variables';
+
+body{margin: 0; padding: 0}
+
+#app{ /*vue 최상위 CSS*/
+    margin: 0; padding: 0;
+    display: flex; justify-content: center;
+    align-content: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position-y: 50%;
+  }
+  
+#appContainer{ /*메인 컨텐츠가 담길 컨테이너*/
+    margin: 0; padding: 0;
+    width: 1100px; height: 100vh; min-height: max-content;
+    font-family: 'Ubuntu', 'Nanum Gothic';
+    overflow: hidden;
+}
+
+.AppIconCt{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  bottom: 3px;
+  width: auto;
+  height: 38px;
+  z-index: 1;
+}
+
+.theme-light-switch__label{
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0 13px;
+  width: 35px;
+  height: 35px;
+  background-color: $window-icon;
+  background-image: url("https://image.flaticon.com/icons/svg/1527/1527689.svg");
+  background-repeat: round;
+  border: none;
+  box-shadow: $component-content-boxShadow;
+  border-radius: 6px;
+  z-index: 1;
+  cursor: pointer;
+  order: 2;
+
+}
+.theme-light-switch{
+  display: none;  
+}
+
+.theme-image-switch{
+  display: inline-block;
+  margin: 0 13px;
+  width: 35px;
+  height: 35px;
+  background-color: $window-icon;
+  background-image: url("https://image.flaticon.com/icons/svg/148/148711.svg");
+  background-repeat: round;
+  border: none;
+  box-shadow: $component-content-boxShadow;
+  border-radius: 6px;
+  z-index: 1;
+  cursor: pointer;
+}
+.theme-image-list{
+  position: absolute;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-flow: row wrap;
+  box-sizing: border-box;
+  width: 255px;
+  min-height: max-content;
+  left: 10px;
+  bottom: 44px;
+  background-color: rgba(255,255,255,0.7);
+  box-shadow: $component-content-boxShadow;
+  border-radius: 6px;
+  z-index:1;
+
+  &-header{
+      display: flex;
+      justify-content: center;
+      justify-self: flex-start;
+      align-items: center;
+      box-sizing: border-box;
+      width: 100%;
+  }
+  & span{
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      margin: 0 5px;
+      width: 20px;
+      height: 20px;
+      left: 10px;
+
+      &:after{
+          content: '';
+          width: 65%;
+          height: 65%;
+          background: url('https://image.flaticon.com/icons/svg/13/13311.svg');
+          background-repeat: round;
+          opacity: 0.5;
+      }
+  }
+  & .theme-image-search{
+      display: inline;
+      width: 245px;
+      height: 30px;
+      margin: 10px;
+      padding-left: 30px;
+      font-size: 0.7rem;
+      border-style: none;
+      border-radius: 5px;
+      border: $component-content-border;
+      background-color: $search-base;
+      
+      &::placeholder{
+        color: $font-Dark;
+        font-size: 0.6rem;
+        padding: 0;
+      }
+      &:hover{
+        background-color: $search-hover;
+      }
+  }
+  &-div{
+      width: 114px;
+      height: 74px;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+      box-shadow: $component-content-boxShadow;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      
+      & img{
+          width: 100%;
+          height: 100%;
+          box-shadow: $component-content-boxShadow;
+          &:hover{
+              filter: opacity(0.8)
+          }
+      }
+  }
+  .theme-image-scroll{
+    width: 225px;
+    color: $font-Dark;
+    cursor: pointer;
+    margin-bottom: 5px;
+  }
+
+  .fa-long-arrow-alt-left{
+    float: left;
+  }
+
+  .fa-long-arrow-alt-right{
+    float: right;
+  }
+}

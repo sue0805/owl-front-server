@@ -1,0 +1,88 @@
+@import '../utils/variables';
+
+.study-main{
+    margin: 0;
+    padding: 0;
+}
+
+.study-contents{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    width: auto;
+    height: 153px;
+    word-break: break-all;
+    font-size: 0.8rem;
+
+}
+
+.study-content{
+    display: flex;
+    align-items: center;
+    overflow: visible;
+    width: 150px;
+    height: 135px;
+    margin: 0 10px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.4);
+    background-color: $component-content-Back;
+    &:hover::after{
+        content: '';
+        position: absolute;
+        left: 44%;
+        top: 20%;
+        border-right: 24px solid none;
+        border-left: 24px solid white;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        opacity: 0.8;
+        pointer-events: none;
+        cursor: pointer;
+        z-index: 2;
+    }
+    &:hover{
+        .study-content-top::before{
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 85px;
+            background-color: rgba(0,0,0,0.1);
+            pointer-events: none;
+            cursor: pointer;
+            z-index: 1;
+        }
+    }
+    }
+
+.study-content-top{
+     display: flex;
+     width: 150px;
+     height: 85px;
+     border-radius: 6px 6px 0 0;
+     background-size: 100%;
+     background-repeat: no-repeat;
+    }
+
+.study-content-mid{
+     display: -webkit-box;
+     box-sizing: border-box;
+     overflow: hidden;
+     padding: 10px;
+     padding-top: 5px;
+     width: 100%;
+     height: 50px;
+     line-height: 20px;
+     text-overflow: ellipsis;
+     word-break: break-all;
+     -webkit-box-orient:vertical;
+     -webkit-line-clamp:2;
+     color: $font-basic;
+     line-height: 21px;
+}
+
+.study-content-a{
+    text-decoration: none;
+    color: $font-basic;
+    word-break: break-all;
+}

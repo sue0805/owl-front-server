@@ -1,0 +1,73 @@
+@import '../utils/variables';
+
+.aboutus-wrap{
+    background-color: $component-content-Back;
+    margin: 1em auto;
+    padding: 1em;
+    width: 95%;
+    height: 90%;
+    border: $component-content-border;
+    border-radius: 6px;
+    box-shadow: $component-content-boxShadow-Deep;
+
+    & hr{
+        border: $component-content-border;
+    }
+}
+
+.aboutus-member{
+    width: 100%;
+    height: 140px;
+    margin: 15px 0;
+    background-color: $component-content-SubLight;
+    border: $component-content-border;
+    border-radius: 10px;
+    box-shadow: $component-content-boxShadow;
+}
+
+.aboutus-member img{
+    /* border: 1px solid black; */
+    margin: 10px;
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    float: left;
+    object-fit: cover;
+    opacity: 0.9;
+}
+
+.aboutus-vr{
+    border-left: 1px solid $component-main-Back;
+    height: 120px;
+    float: left;
+    margin: 10px;
+}
+
+.aboutus-member-info{
+    float: left;
+    width: 81%;
+    margin: 10px;
+    color: $font-Dark;
+    
+}
+
+.aboutus-tag{
+    background-color: $component-main-Back;
+    margin: 1em;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: $font-title;
+}
+
+.aboutus-say{
+    background-color: #fffabb;
+    color: $font-Dark;
+}
+
+.aboutus-name{
+    font-weight: bolder;
+}
+
+.aboutus-member hr{
+    margin: 1em 0 2em 0;
+}

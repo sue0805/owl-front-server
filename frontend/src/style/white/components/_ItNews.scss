@@ -1,0 +1,44 @@
+@import '../utils/variables';
+
+.ItNews{
+}
+
+.it-contents{
+    overflow-x: scroll;
+    overflow-y: none;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+.ItNews ul{
+    padding: 0;
+}
+
+.ItNews li{
+    display: inline-block;
+    list-style-type: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 99%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 0.8rem;
+
+    &:nth-child(2n-1){
+        background-color: $component-content-SubLight;
+    }
+}
+
+.ItNews a{
+    text-decoration: none;
+    color: $font-basic;
+}
+
+.ItNews a:hover{
+    color: $font-basic;
+}
+
+.it-subtitle{
+}

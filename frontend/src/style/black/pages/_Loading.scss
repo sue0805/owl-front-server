@@ -1,0 +1,65 @@
+@import '../utils/variables';
+
+.loading {
+    margin: 0;
+    padding: 0;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+  }
+
+  .loading-bro {
+    position: absolute;
+    top: 20vh;
+    margin: 50px auto;
+    width: 150px;
+
+    >h1 {
+      text-align: center;
+      font-size: 4.3vh;
+      margin-bottom: 1em;
+      font-weight: 300;
+      color: $font-basic;
+    }
+  }
+
+  .loadsvg {
+    text-align: center;
+    width: 16vh;
+    animation: loading 3s linear infinite;
+
+    .loading-inner {
+      stroke: {
+        dashoffset: 0;
+        dasharray: 300;
+        width: 10;
+        miterlimit: 10;
+        linecap: round;
+
+      }
+
+      animation: loading-circle 2s linear infinite;
+      stroke: #F75F1C;
+      fill: transparent;
+    }
+  }
+
+  @keyframes loading {
+    0% {
+      transform: rotate(0);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes loading-circle {
+    0% {
+      stroke-dashoffset: 0
+    }
+
+    100% {
+      stroke-dashoffset: -600;
+    }
+  }

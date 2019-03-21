@@ -1,0 +1,227 @@
+@import '../utils/variables';
+
+.others{
+    // margin: 0; padding: 0;
+    background-color: $component-content-Back;
+}
+
+.others-wrap{
+   height: 100%;
+   overflow-y: auto;
+}
+.others hr{
+   border: 1px solid #777;
+    margin: 0;
+}
+
+.others-category{
+    display: inline-block;
+    background-color: $component-content-Sub;
+    width: 60px;
+    padding: 8px 10px;
+    text-align: center;
+    font-weight: bold;
+    color: $font-basicLight;
+    font-size: 12px;
+    margin: 0;
+    cursor: pointer;
+
+}
+
+.others-activetab{
+    background-color: #333;
+}
+
+.others-selectbox{
+    margin : 11px;
+    text-align: right;
+    color: $font-basic;
+    font-size: 11px;
+}
+
+.others hr{
+    border: 0.5px solid #ccc;
+    margin: 0;
+    clear: both;
+}
+
+.others select{
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    color: $font-Dark;
+    cursor: default;
+    font-size: 11px;
+    font-weight: bold;
+    width: 90px;
+    padding-left: 10px;
+    height: 30px;
+    outline: 0;
+    background-color: #F3F3F3;
+
+}
+
+.others-resultinfo{
+    float: left;
+    padding: 20px 10px;
+    color: $font-basic;
+    width: 180px;
+}
+
+.others-ul img{
+    width: 13px;
+}
+
+.others-ul{
+    box-sizing: border-box;
+    margin: 10px 0px;
+    padding: 0;
+    font-size: 0.9rem;
+    color: $font-basic;
+    width: 100%;
+    float: left;
+    border-right: 10px solid transparent;
+
+}
+.others li{
+    list-style-type: none;
+    overflow: hidden;
+    margin: 3% 0.5em;
+    // border: 1px solid red;
+}
+
+.others li:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.others-title{
+    font-size: 0.9rem;
+}
+
+.others-link{
+    font-size: 0.8em;
+    margin: 3px;
+    color: green;
+}
+
+// .others-right{ //others의 google api 검색결과
+//     box-sizing: border-box;
+//     margin-top: 10px;
+//     border-left: 10px solid transparent;
+//     border-right: 10px solid transparent;
+//     padding: 0;
+//     width: 50%;
+//     float: left;
+    
+//     // border: 1px solid red;
+//     // others-right안에 있는 div들은 google api 사이트에서 css를 1차적으로 관리된다..
+//     // 구글 검색결과는  {.gsc-control-cse-ko , .gsc-control-cse} class를 가진다..
+    
+    
+//     .gsc-control-cse, .gsc-control-cse-ko{
+//         overflow: hidden;
+//         padding: 0;
+//         background-color: $component-content-Back;
+//         border: none;
+//         & *{
+//             color: $font-basic;
+//             font-size: 0.8rem;
+//         }
+//         & .gs-title{
+//             color: $font-basic !important;
+//             font-size: 16px !important;
+//             & b{
+//                 color: $font-basic !important;
+//             }
+//         }
+//     }
+
+//     .gsc-webResult, .gsc-result{
+//         background-color: $component-content-Back !important;
+//         border: none !important;
+//     }
+//     .gs-webResult, .gs-result{
+//         &:hover{
+//             opacity: 0.8;
+//         }
+//     }
+
+//     .gsc-above-wrapper-area{
+//     }
+//     .gsc-tabsArea{
+//         margin: 0;
+//         border-bottom: 1px solid $font-basic;
+//     }
+//     .gsc-tabHeader{
+//         color: $font-basicLight;
+//         font-size: 12px;
+//     }
+//     .gsc-orderby-label{
+//         font-size: 11px;
+//     }
+//     .gsc-selected-option-container{
+//         margin: 5px 5px;
+//         height: 28px;
+//         line-height: 28px;
+//         & *{
+//             color: $font-Dark;
+//             font-size: 11px;
+//         }
+//     }
+//     .gsc-cursor-page {
+//         background-color: $component-content-Back !important;
+//         color: $font-basic !important;
+//     }
+//     .gsc-cursor-current-page {
+//         font-weight: 700;
+//         font-size: 1rem;
+//         color: $button-base !important;
+//     }
+
+// }
+
+.others-subpost{
+    font-size: 0.9em;
+    color: rgb(66, 66, 66);
+}
+
+.others a{
+    text-decoration: none;
+    color: $font-basic;
+}
+
+.others-h2-right{
+    float: right;
+    cursor: pointer;
+
+}
+
+.others-pages{
+    cursor: pointer;
+    margin: 0 0.1em;
+    & b{
+        font-weight: 700;
+        font-size: 1rem;
+        color: $button-base;
+    }
+
+}
+
+h3{
+    margin: 5px;
+    color: $font-basic;
+    display: inline-block;
+}
+
+.others-footer{
+    clear: both;
+    font-size: 0.85em;
+}
+
+.others-clickp{
+    margin: 0.5em;
+    float: left;
+    cursor: pointer;
+}

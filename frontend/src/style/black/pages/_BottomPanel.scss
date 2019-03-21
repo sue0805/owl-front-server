@@ -1,0 +1,130 @@
+@import '../utils/variables';
+
+.BottomPanel { /* 컴포넌트 래퍼 */
+    margin: 0; padding: 0;
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 44px;
+    background: $window-bar;
+}
+
+.BottomPanel > div{
+    margin: 1.2em;
+}
+
+
+
+.searchInputCt{ /* 검색창은 추후 위치수정이 필요없으므로 relative. */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    z-index: 10000;
+}
+
+.searchInput{ /* 검색창 */
+    box-sizing: border-box;
+    padding-left: 1em;
+    border-style: none;
+    border-radius: 5px 0 0 5px;
+    background-color: $search-base;
+    width: 500px;
+    height: 2.9em;
+    font-size: 1rem;
+    z-index: 10000;
+
+    &:hover{
+        background-color: $search-hover;
+    }
+    &:focus{
+        outline: none;
+    }
+}
+
+.searchBtn{ /* 검색버튼 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $button-gradient;
+    float: right;
+    border-style: none;
+    border-radius: 0 5px 5px 0;
+    height: 2.9em;
+    width: 4em;
+    cursor: pointer;
+    
+    & i{
+        // color: $font-ba;
+    }
+}
+
+.addBtn{ /* 검색버튼 이미지 */
+    color: $font-basic;
+    vertical-align: middle;
+}
+
+.signBtnCt{ /*로그인버튼 컨테이너에 추후 다른 버튼이 추가될 수 있으므로 fixed*/
+    position: fixed;
+    text-align: center;
+    align-content: center;
+    bottom: -15px;
+    z-index: 10000;
+}
+
+.signBtnCt button{ /* 로그인버튼 */
+    margin: 0 0.3em;
+    width: 5.3em;
+    height: 2.7em;
+    border: none;
+    border-radius: 5px;
+    background-color: $button-base;
+    color: $font-basic;
+    cursor: pointer;
+    z-index: 10000;
+
+    &:focus{
+        outline: none;
+    }
+}
+
+.signBtnCt button:hover{ /* 로그인 버튼 호버*/
+    background: $button-gradient;
+    color: $font-basicLight;
+}
+
+
+/* 추천 키워드 */
+
+.rec-keywords{ /*추천키워드 전체*/
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    flex-direction:row;
+    width: 100%;
+    bottom: 40px;
+    text-align: center;
+    visibility: collapse;
+}
+.rec-keyword{ /*추천 키워드 개별*/
+    display: inline-block;
+    position: relative;
+    color: $font-basic;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    padding: 2px 8px 2px 8px;
+    font-size: 20px;
+    margin-left: 0.5em;
+    cursor: pointer;
+    visibility: visible;
+}
+.rec-keyword:hover{
+    color: $font-basicDark;
+}
