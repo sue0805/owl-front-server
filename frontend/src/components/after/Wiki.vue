@@ -4,7 +4,11 @@
         <div class="official-wrap">
             <!-- 위키 데이터 출력 -->
             <div class="official-wiki">
-                <p v-html="wiki" v-on:click="changeKeyword"></p>
+                <div class="official-move">
+                    <i class="fas fa-arrow-left" style="float:left;cursor:pointer" v-if="wikipos > 0" @click="move(-1)"></i>
+                    <i class="fas fa-arrow-right" style="float:right;cursor:pointer" v-if="wikiarr.length - 1 > wikipos && wikiarr.length > 1" @click="move(1)"></i>
+                </div>
+                <p v-html="wiki"></p>
             </div>         
             <ul class="review-ul">
                 <!-- 리뷰 목록 출력 -->
@@ -15,7 +19,7 @@
                 </li>
                 <li class="review-li" v-if="reviews == null || reviews.length === 0">
                     <span class="review-none">
-                        <a class="review-keyword" @click="$EventBus.$emit('search', tag)">{{keyword}}</a>
+                        <a class="review-keyword" @click="$EventBus.$emit('search', keyword)">{{keyword}}</a>
                         에 대한 리뷰가 없습니다.
                     </span>
                 </li>
@@ -41,6 +45,11 @@ export default {
         this.setWikiData(this.$store.state.searchKeyword)
         this.$EventBus.$on('getRandomKeyword', this.getRandomKeyword) 
     },
+    updated(){
+        document.querySelectorAll('div.official-wiki b').forEach(el => { 
+            if(el.style.cursor == 'pointer') el.onclick = this.changeKeyword
+        })
+    },
     data(){
         return{
             reviews: [],
@@ -49,8 +58,11 @@ export default {
             input_review:'',
             reviewPage: [],
             ready: false,
-            keyword: '',
+            keyword: this.$store.state.searchKeyword,
             reload: 0,
+            wikiarr: [],
+            wikipos: 0,
+            moving: false,
         }
     },
     methods:{
@@ -88,52 +100,66 @@ export default {
                 this.reviewPage = response.data;
             });
         },
-        changeKeyword(){
-            this.keyword = localStorage.linkKeyword
+        changeKeyword(e){
+            this.keyword = e.target.textContent
+            this.wikipos++
             this.setWikiData(this.keyword)
         },
+        move(direction){
+            this.moving = true
+            if(direction === -1) this.setWikiData(this.wikiarr[--this.wikipos])
+            else this.setWikiData(this.wikiarr[++this.wikipos])
+        },
         setWikiData(keyword){
-        this.$http.get(`http://52.79.204.244/search/review/${this.keyword}/0`).then(res => {
-            this.reviews = res.data.content
-            this.reviewPage = res.data;
-        });
 
-        const query = { "query": { "match": { "title": keyword } } }
-        this.$http.get(`http://13.209.160.90:9200/korwiki/_search`, {
-          params:{
-              source: JSON.stringify(query),
-              source_content_type: 'application/json',
-      },
-      }).then(res =>{
-          if(res.data.hits.hits.length < 1) {
-              this.reviews = null
-              this.setWikiData('부엉이')
-              return
-          }
-          let textData = res.data.hits.hits[0]._source.revision.text._
-          if((textData.indexOf('#REDIRECT')!=-1 || textData.indexOf('#넘겨주기')!=-1) && this.reload < 3){
-              this.keyword = (/\[\[(.*)\]\]/).exec(textData)[1]
-              this.reviews = null
-              this.reload++
-              this.setWikiData(this.keyword)
-              return
-          }
-          textData = textData.replace(/\n/g, '<br/>')
-          textData = textData.replace(/\[\[([^|]+?)\]\]/ig, "<b style='color: blue;cursor: pointer;' onclick='localStorage.linkKeyword=`$1`'>$1</b>")
-          textData = textData.replace(/\[\[파일:.*?\]\]/ig," ")
-          textData = textData.replace(/\[\[.*?\|(.*?)\]\]/ig, "<b style='color:black'>$1</b>")
-          textData = textData.replace(/\(\{\{(.*?)\}\}\)/ig, " ")
-          textData = textData.replace(/<ref(.*?)<\/ref>/ig, " ")
-          textData = textData.replace(/\{\{(.*?)\}\}/ig, "<b>$1</b>")
-          textData = textData.replace(/\[(http.*?) (.*?)\]/ig,"<a href=$1 target='_blank'>$2</a>")
-          textData = textData.replace(/(언어|lang|링크|link)(\|en\|)|(\{\{|\}\})|(언어링크)/ig,"")
-          textData = textData.replace(/\|/ig,"- ")
-          textData = textData.replace(/\b(?:https?):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*/ig, "<a href=$& target='_blank'>$&</a>")
-          textData = textData.replace(/'''(.*?)'''/ig, "<b>$1</b>")
-          this.wiki = textData
-          this.ready = true
-          this.reload = 0
-      })
+            this.$http.get(`http://52.79.204.244/search/review/${this.keyword}/0`).then(res => {
+                this.reviews = res.data.content
+                this.reviewPage = res.data;
+            });
+
+            const query = { "query": { "match": { "title": keyword } } }
+            this.$http.get(`http://13.209.160.90:9200/korwiki/_search`, {
+                params:{
+                    source: JSON.stringify(query),
+                    source_content_type: 'application/json',
+            },
+            }).then(res =>{
+                if(res.data.hits.hits.length < 1) {
+                    this.reviews = null
+                    this.setWikiData('올빼미')
+                    return
+            }
+            let textData = res.data.hits.hits[0]._source.revision.text._
+            if((textData.indexOf('#REDIRECT')!=-1 || textData.indexOf('#넘겨주기')!=-1) && this.reload < 3){
+                this.keyword = (/\[\[(.*)\]\]/).exec(textData)[1]
+                this.reviews = null
+                this.reload++
+                this.setWikiData(this.keyword)
+                return
+            }
+            textData = textData.replace(/\n/g, '<br/>')
+            textData = textData.replace(/\[\[([^|]+?)\]\]/ig, "<b style='color: blue;cursor: pointer;>$1</b>")
+            textData = textData.replace(/\[\[파일:.*?\]\]/ig," ")
+            textData = textData.replace(/\[\[.*?\|(.*?)\]\]/ig, "<b style='color:black'>$1</b>")
+            textData = textData.replace(/\(\{\{(.*?)\}\}\)/ig, " ")
+            textData = textData.replace(/<ref(.*?)<\/ref>/ig, " ")
+            textData = textData.replace(/\{\{(.*?)\}\}/ig, "<b>$1</b>")
+            textData = textData.replace(/\<a href="(http.*?) (.*?)<\/a>\]/ig,"<a href='$1' target='_blank'>$2</a>")
+            textData = textData.replace(/(언어|lang|링크|link)(\|en\|)|(\{\{|\}\})|(언어링크)/ig,"")
+            textData = textData.replace(/\|/ig,"- ")
+            textData = textData.replace(/\b(?:https?):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*/ig, "<a href=$& target='_blank'>$&</a>")
+            textData = textData.replace(/'''(.*?)'''/ig, "<b>$1</b>")
+            this.wiki = textData
+            this.ready = true
+            this.reload = 0
+            
+            if(this.wikipos === 0 && !this.moving) this.wikiarr = [this.keyword]
+            else if(!this.moving) {
+                this.wikiarr.push(this.keyword)
+            } else if(this.moving){
+                this.moving = false
+            }
+        })
         },
         getRandomKeyword(){
             return [...this.$store.state.koreanKeywords, ...this.$store.state.etcKeywords].sort(()=>{return 0.5-Math.random()})[0]

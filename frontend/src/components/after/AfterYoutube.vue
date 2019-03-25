@@ -57,7 +57,6 @@ export default {
                 } else {
                     for(let i of res.data.hits.hits){
                         if(!i._source.img||i._source.img.indexOf('.jpg')==-1&&i._source.img.indexOf('.png')==-1) continue
-                        console.log(i)
                         this.lectures.push({title:i._source.title, link:i._source.link , img:i._source.img })
                     }
                     this.ready = true;

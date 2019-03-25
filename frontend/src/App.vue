@@ -243,6 +243,8 @@ export default {
     },
     search(keyword){
       this.$store.dispatch('SET_SEARCH_KEYWORD', keyword)
+      document.querySelector('#appContainer > div.BottomPanel > div.searchInputCt > input').value = keyword
+      console.log(this.$store.state.searchKeyword)
       this.goLoadingPage()
     }
 
