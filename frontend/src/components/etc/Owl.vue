@@ -1,20 +1,20 @@
 <template>
     <div class="mapper-main">
         <div class="compHead"></div>
-        <AboutOwl v-if="AboutOwl"/>
-        <AboutUs v-if="aboutus"/>
-        <Skills v-if="skills"/>
-        <Contact v-if="contact"/>
-        <div class="mapper-prev" @mouseover="showPrev = true" @mouseleave="showPrev = false">
-            <div class="mapper-prev-hidden" v-if="showPrev && prev">
-                <i class="fas fa-angle-left" @click="movePage(-1)"></i>
+            <AboutOwl v-if="AboutOwl"/>
+            <AboutUs v-if="aboutus"/>
+            <Skills v-if="skills"/>
+            <Contact v-if="contact"/>
+            <div class="mapper-prev" @mouseover="showPrev = true" @mouseleave="showPrev = false">
+                <div class="mapper-prev-hidden" v-if="showPrev && prev">
+                    <i class="fas fa-angle-left" @click="movePage(-1)"></i>
+                </div>
             </div>
-        </div>
-        <div class="mapper-next" @mouseover="showNext = true" @mouseleave="showNext = false">
-            <div class="mapper-next-hidden" v-if="showNext && next">
-                <i class="fas fa-angle-right" @click="movePage(1)"></i>
+            <div class="mapper-next" @mouseover="showNext = true" @mouseleave="showNext = false">
+                <div class="mapper-next-hidden" v-if="showNext && next">
+                    <i class="fas fa-angle-right" @click="movePage(1)"></i>
+                </div>
             </div>
-        </div>
     </div>
 </template>
 
