@@ -125,6 +125,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
-.rec-keyword:hover{
+.rec-keyword:hover, .rec-keyword:focus{
+    background-color: rgba(200,200,200,0.5);
     color: $font-basicDark;
 }

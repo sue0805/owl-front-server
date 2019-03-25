@@ -2,7 +2,7 @@
     <div class="data-main" v-if="ready">        
         <div class='data-contents'>  
             <div v-bind:key="content + '' +index" v-for="(content, index) in lectures" class="data-content" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
-                <a href="#" class='data-content-a' v-on:click="clickContent(content.link, content._source.title)">
+                <a href="#" class='data-content-a' @click.prevent="clickContent(content.link, content.title)">
                 <div class='data-content-top' v-bind:style="{backgroundImage:'url(' + content.img + ')'}"></div>
                 <div class='data-content-mid'>{{content.title}}</div>
                 </a>
@@ -57,6 +57,7 @@ export default {
                 } else {
                     for(let i of res.data.hits.hits){
                         if(!i._source.img||i._source.img.indexOf('.jpg')==-1&&i._source.img.indexOf('.png')==-1) continue
+                        console.log(i)
                         this.lectures.push({title:i._source.title, link:i._source.link , img:i._source.img })
                     }
                     this.ready = true;

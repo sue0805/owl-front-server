@@ -274,8 +274,7 @@ export default {
                     nickname: document.querySelector('#mypage-nick').value
                 }
             }).then(res => {
-                this.$store.state.nickname = res.data.nickname
-                this.memberInfo = this.$store.state
+                this.$EventBus.$emit('refreshMember')
                 this.edituser = false
                 this.msg = ''
             });
@@ -302,11 +301,15 @@ export default {
                 url: 'http://52.79.204.244/member/edit',
                 data: {
                     mem_idx: this.memberInfo.mem_idx,
-                    password: newp
+                    password: newp,
+                    currpwd: curr
                 }
             }).then(res => {
-                this.editpw = false
-                this.msg = ''
+                if(res.data.length == 0) this.msg = '현재 비밀번호가 다릅니다.'
+                else {
+                    this.editpw = false
+                    this.msg = ''
+                }
             })
         },
         delMember(){
