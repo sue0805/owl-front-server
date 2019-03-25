@@ -30,7 +30,7 @@ export default {
     },
     computed:{
         naverLoginURL(){return `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${this.$store.getters.apis.naver[0]}&redirect_uri=http%3a%2f%2flocalhost%3a8095%2fapi%2fnaver%2fcallback&state=123`},
-        kakaoLoginURL(){return `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${this.$store.getters.apis.kakao[0]}&redirect_uri=http%3a%2f%2f13.209.213.138%2fapi%2fkakao%2fcallback`},
+        kakaoLoginURL(){return `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${this.$store.getters.apis.kakao[0]}&redirect_uri=http%3a%2f%2f52.79.204.244%2fapi%2fkakao%2fcallback`},
         githubLoginURL(){return `https://github.com/login/oauth/authorize?client_id=${this.$store.getters.apis.github[0]}&redirect_uri=http://52.79.204.244/api/github/callback`}
     },
     methods:{
