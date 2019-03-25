@@ -12,7 +12,9 @@
             </div>
             <div class="mapper-next" @mouseover="showNext = true" @mouseleave="showNext = false">
                 <div class="mapper-next-hidden" v-if="showNext && next">
-                    <i class="fas fa-angle-right" @click="movePage(1)"></i>
+                    <div class="mapper-next-hidden-icon">
+                        <i class="fas fa-angle-right" @click="movePage(1)"></i>
+                    </div>
                 </div>
             </div>
     </div>
