@@ -50,7 +50,7 @@
     created() {
       setTimeout(() => {
         this.$EventBus.$emit('goBeforePage')
-      }, 6000)
+      }, 1500)
     },
     data() {
       return {

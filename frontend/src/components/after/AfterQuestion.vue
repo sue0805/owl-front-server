@@ -47,7 +47,7 @@ export default {
         currentOffset: 0,
         windowSize: 1,
         columnCnt: 3,
-        paginationFactor: 139,
+        paginationFactor: 138.6,
         currentPage: 0,
         isNull: false,
     }
@@ -63,7 +63,7 @@ export default {
     },
     methods:{
         setQuestionList(){
-        this.$http.get(`http://52.79.204.244/question/sorted/list`, { params: {keyword: this.$store.state.mainKeyword, page: this.currentPage }}) // axios 요청으로 질문 리스트 받아옴
+        this.$http.get(`http://52.79.204.244/question/sorted/list`, { params: {keyword: this.$store.state.searchKeyword, page: this.currentPage }}) // axios 요청으로 질문 리스트 받아옴
         .then(res => {
             if(!res.data.length)
                 this.isNull = true
