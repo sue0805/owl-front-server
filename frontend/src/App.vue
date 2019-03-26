@@ -92,7 +92,7 @@ export default {
       const token = this.getToken()
       console.log(token)
       this.backImg = localStorage.getItem("theme") != null ? localStorage.getItem("theme") : this.backImg
-      if(token !== null){
+      if(token){
         this.$http.get(`http://52.79.204.244/member?email=${token.email}`).then(res => {
           console.log(res.data)
           this.$store.dispatch('SETMEMBER', res.data)
