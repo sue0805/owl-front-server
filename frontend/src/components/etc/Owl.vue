@@ -2,13 +2,13 @@
 <div class="modal-wrap">
     <div class="mapper-main">
         <div class="compHead"></div>
+        <div class="Owl-contents">
             <AboutOwl v-if="AboutOwl"/>
             <AboutUs v-if="aboutus"/>
             <Skills v-if="skills"/>
             <Contact v-if="contact"/>
+        </div>
         <div class="prev-next-container">
-            <!-- <div class="mapper-prev">
-                <div class="mapper-prev-hidden"> -->
             <div class="mapper-prev" @mouseover="showPrev = true" @mouseleave="showPrev = false">
                 <div class="mapper-prev-hidden" v-if="showPrev && prev">
                     <div class="mapper-prev-hidden-icon">
@@ -16,8 +16,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="mapper-next">
-                <div class="mapper-next-hidden"> -->
             <div class="mapper-next" @mouseover="showNext = true" @mouseleave="showNext = false">
                 <div class="mapper-next-hidden" v-if="showNext && next">
                     <div class="mapper-next-hidden-icon">

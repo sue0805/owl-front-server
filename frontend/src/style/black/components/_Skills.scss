@@ -1,18 +1,17 @@
 @import '../utils/variables';
 
 .skills-wrap{
-    background-color: $component-content-Back;
-    margin: 1em auto;
-    padding: 1em;
-    width: 95%;
-    height: 90%;
-    border: $component-content-border;
-    box-shadow: $component-content-boxShadow-Deep;
+    box-sizing: border-box;
+    position: relative;
+    margin: 0; padding: 10px;
+    width: 99%;
+    height: 95%;
+    border: 1px solid rgb(220, 220, 220);
+    border-bottom: 1.5px solid rgb(190,190,190);
     border-radius: 6px;
-    
-    & hr{
-        border: $component-content-border;
-    }
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: $component-content-Back;
 }
 
 .skills-contents{
@@ -23,7 +22,7 @@
     margin: 0;
     padding: 1em 0;
     width: 100%;
-    height: max-content;
+    height: 100%;
 }
 
 .skills-circle{
@@ -37,14 +36,14 @@
     margin: 1em;
     cursor: pointer;
     text-align: center;
-    background-color: $component-content-SubLight;
-    border: $component-content-border;
-    box-shadow: $component-content-boxShadow;
+    background-color: white;
+    border: 1px solid rgb(220, 220, 220);
+    border-bottom: 2px solid rgb(190,190,190);
     border-radius: 50px;
 }
 
 .skills-circle:hover{
-    background-color: $component-content-SubDark;
+    background-color: #e0e0e0;
 }
 
 .skills-box img{
@@ -63,7 +62,7 @@
     padding: 0.5em;
     border-radius: 5px;
     font-size: 0.7em;
-    color: $font-white;
+    color: #444;
     font-weight: 700;
     opacity: 0.8;
     word-wrap: break-word;
@@ -78,7 +77,7 @@
     border: $component-content-border;
     border-radius: 6px;
     box-shadow: $component-content-boxShadow;
-    background-color: $component-content-SubLight;
+    background-color: $component-main-Back;
     // opacity: 0.7;
     color: $font-basic;
 }

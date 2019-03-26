@@ -13,10 +13,12 @@
                             <div class="aboutus-member-info">
                                 <span class="aboutus-name">{{member.name}}</span>
                                 <hr>
-                                <span class="aboutus-tag" v-for="(role, index) in member.role" :key="role + member.name + index">
-                                    {{role}}
-                                </span>
-                                <span class="aboutus-tag aboutus-say">{{member.say}}</span>
+                                <div class="aboutus-tagCt">
+                                    <span class="aboutus-tag" v-for="(role, index) in member.role" :key="role + member.name + index">
+                                        {{role}}
+                                    </span>
+                                    <span class="aboutus-tag aboutus-say">{{member.say}}</span>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -28,6 +28,19 @@
     background-color: $component-main-Back;
     visibility: visible;
 }
+.Owl-contents{
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0; padding: 0;
+    margin-top: 15px;
+    width: 100%;
+    height: 100%;
+    opacity: 0.99;
+    overflow: auto;
+}
 
 .mapper-shy{
     opacity: 0.2;
