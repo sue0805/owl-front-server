@@ -51,6 +51,7 @@ export default {
   created(){
     this.getAPIs()
     this.setState()
+    console.log(this.$store.state)
     this.$EventBus.$on('goBeforePage', this.goBeforePage)
     this.$EventBus.$on('goAfterPage', this.goAfterPage)
     this.$EventBus.$on('goLoadingPage', this.goLoadingPage)
