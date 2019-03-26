@@ -6,13 +6,16 @@
     margin: 0; padding: 10px;
     width: 99%;
     height: 95%;
-    border: 1px solid rgb(220, 220, 220);
-    border-bottom: 1.5px solid rgb(190,190,190);
+    border: $component-content-border;
+    box-shadow: $component-content-boxShadow-Deep;
     border-radius: 6px;
     overflow-x: hidden;
     overflow-y: auto;
     background-color: $component-content-Back;
     // border: 2px solid green;
+    & hr{
+        border: $component-content-border;
+    }
 }
 .aboutus-members{
     box-sizing: border-box;
@@ -32,9 +35,9 @@
     margin: 0; padding: 0;
     
     margin-top: 15px;
-    background-color: white;
+    background-color: $component-content-Back;
     border: $component-content-border;
-    border-bottom: 1.5px solid rgb(190,190,190);
+    box-shadow: $component-content-boxShadow;
     border-radius: 10px;
     // border: 2px solid gold;
 }
@@ -67,7 +70,7 @@
     width: 80%;
     height: 80%;
     margin: 10px;
-    // border: 2px solid blueviolet;
+    color: $font-Dark;
 }
 .aboutus-tagCt{
     box-sizing: border-box;
@@ -82,7 +85,8 @@
 }
 .aboutus-tag{
     box-sizing: border-box;
-    background-color: #eee;
+    background-color: $component-main-Back;
+    color: $font-title;
     margin: 0 10px;
     padding: 5px 10px;
     border-radius: 10px;
@@ -92,6 +96,7 @@
 .aboutus-say{
     box-sizing: border-box;
     background-color: #fffabb;
+    color: $font-Dark;
 }
 
 .aboutus-name{
@@ -101,6 +106,7 @@
     width: 100%;
     height: max-content;
     font-weight: bolder;
+    color: $font-basic;
     // border: 2px solid red;
 }
 
