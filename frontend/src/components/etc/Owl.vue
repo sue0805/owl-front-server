@@ -7,7 +7,9 @@
             <Contact v-if="contact"/>
             <div class="mapper-prev" @mouseover="showPrev = true" @mouseleave="showPrev = false">
                 <div class="mapper-prev-hidden" v-if="showPrev && prev">
-                    <i class="fas fa-angle-left" @click="movePage(-1)"></i>
+                    <div class="mapper-prev-hidden-icon">
+                        <i class="fas fa-angle-left" @click="movePage(-1)"></i>
+                    </div>
                 </div>
             </div>
             <div class="mapper-next" @mouseover="showNext = true" @mouseleave="showNext = false">
