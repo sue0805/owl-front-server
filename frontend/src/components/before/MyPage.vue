@@ -1,5 +1,5 @@
 <template>
-    <div class='MyPage' v-if="ready">
+    <div class='MyPage'>
         <div class="compHead">
             MYPAGE
         </div>
@@ -157,9 +157,6 @@
 import animals from '../../data/animals.json'
 
 export default {
-    created(){
-        this.ready = true
-    },
     data(){
         return{
             memberInfo: this.$store.state,
@@ -172,7 +169,6 @@ export default {
             edituser: false,
             deluser: false,
             editpw: false,
-            ready: false,
             msg: "",
             img1: 'https://image.flaticon.com/icons/svg/1283/1283214.svg',
             img2: 'https://image.flaticon.com/icons/svg/1283/1283222.svg',
@@ -193,15 +189,15 @@ export default {
                 if(keyword.split(' ').join('').length != 0) tmp.push(keyword)
             })
 
-            return tmp;
+            return tmp
         },
         replies(){
-            let memberInfo = this.$store.state;
+            let memberInfo = this.$store.state
 
-            if(memberInfo.sortedQuestionReplies == null && memberInfo.unsolvedQuestionReplies == null) return [];
-            if(memberInfo.sortedQuestionReplies != null && memberInfo.unsolvedQuestionReplies == null) return memberInfo.sortedQuestionReplies;
-            if(memberInfo.sortedQuestionReplies == null && memberInfo.unsolvedQuestionReplies != null) return memberInfo.unsolvedQuestionReplies;
-            return memberInfo.sortedQuestionReplies.concat(memberInfo.unsolvedQuestionReplies);
+            if(memberInfo.sortedQuestionReplies == null && memberInfo.unsolvedQuestionReplies == null) return []
+            if(memberInfo.sortedQuestionReplies != null && memberInfo.unsolvedQuestionReplies == null) return memberInfo.sortedQuestionReplies
+            if(memberInfo.sortedQuestionReplies == null && memberInfo.unsolvedQuestionReplies != null) return memberInfo.unsolvedQuestionReplies
+            return memberInfo.sortedQuestionReplies.concat(memberInfo.unsolvedQuestionReplies)
         },
         alerts(){
             let memberInfo = this.$store.state
@@ -225,7 +221,7 @@ export default {
             this.contentsshow = !this.contentsshow
         },
         showAlert(){
-            this.alertshow = true;
+            this.alertshow = true
         },
         closeInfo(){
             this.contentsshow = false
@@ -239,7 +235,7 @@ export default {
             this.$http.get(link).then(response => {
                 if(link.includes('sorted')) this.clickSth(response.data, 1)
                 else if(link.includes('unsolved')) this.clickSth(response.data, 0)
-            });
+            })
         },
         removeScrap(scrap){
             this.$http({
@@ -252,8 +248,8 @@ export default {
                 }).then(response => {
 
                 }).finally(() => {
-                    this.$EventBus.$emit('refreshMember');
-                });
+                    this.$EventBus.$emit('refreshMember')
+                })
         },
         signUpAction(){
             this.$EventBus.$emit('showSignUp')
@@ -264,7 +260,7 @@ export default {
         editNickname(){
             if(document.querySelector('#mypage-nick').value.length == 0){
                 this.msg = '변경할 닉네임을 입력해주세요.'
-                return;
+                return
             }
             this.$http({
                 method: 'post',
@@ -277,7 +273,7 @@ export default {
                 this.$EventBus.$emit('refreshMember')
                 this.edituser = false
                 this.msg = ''
-            });
+            })
         },
         checkPW(){
             let pw = document.querySelector('#mypage-newPw').value
@@ -328,7 +324,7 @@ export default {
                     this.msg = ''
                     this.$store.dispatch('LOGOUT').then(console.log('로그아웃 완료'))
                 }
-            });
+            })
         },
         randomNick(){
             this.$store.state.nickname = '익명의 ' + animals[Math.floor(Math.random() * animals.length)]
@@ -342,7 +338,7 @@ export default {
             
             let ok = window.confirm("정말 삭제 하시겠습니까?")
 
-            if(!ok) return;
+            if(!ok) return
 
             if(type === 0) url = 'http://52.79.204.244/question/unsolved'
             else if(type === 1) url = 'http://52.79.204.244/question/sorted'
@@ -366,8 +362,8 @@ export default {
             
         },
         editQ(question, type){
-            question.content = question.content.split('<br/>').join('\n');
-            question.type = type;
+            question.content = question.content.split('<br/>').join('\n')
+            question.type = type
             this.$EventBus.$emit('showWrite', question)
         },
         readAlert(...question){

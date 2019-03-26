@@ -48,6 +48,29 @@ import animals from './data/animals.json'
 
 export default {
   name: 'App',
+  created(){
+    this.getAPIs()
+    this.$EventBus.$on('goBeforePage', this.goBeforePage)
+    this.$EventBus.$on('goAfterPage', this.goAfterPage)
+    this.$EventBus.$on('goLoadingPage', this.goLoadingPage)
+    this.$EventBus.$on('setSearchHistory', this.setSearchHistory)
+    this.$EventBus.$on('refreshMember', this.refreshMember)
+    this.$EventBus.$on('search', this.search)
+    const token = this.getToken()
+    this.backImg = localStorage.getItem("theme") != null ? localStorage.getItem("theme") : this.backImg
+    if(token !== null){
+      this.$http.get(`http://52.79.204.244/member?email=${token.email}`).then(res => {
+        this.$store.dispatch('SETMEMBER', res.data)
+        this.setCustomKeywords(res.data.email)
+        this.setSearchHistory(res.data.email)
+      })
+    } else {
+      // TODO anonymous@NAM 고치기
+      this.setMemberState('anonymous@NAM', '익명의 ' + animals[Math.floor(Math.random() * animals.length)] , null)
+      this.setCustomKeywords(`anonymous@NAM`)
+      this.setSearchHistory(`anonymous@NAM`)
+    }
+  },
   components: {
     'BottomPanel' : BottomPanel,
     'Start' : Start,
@@ -79,6 +102,7 @@ export default {
   methods: {
     setState(){
       const token = this.getToken()
+      console.log(token)
       this.backImg = localStorage.getItem("theme") != null ? localStorage.getItem("theme") : this.backImg
       if(token !== null){
         this.$http.get(`http://52.79.204.244/member?email=${token.email}`).then(res => {
@@ -248,30 +272,6 @@ export default {
       this.goLoadingPage()
     }
 
-  },
-
-  created(){
-    this.getAPIs()
-    this.$EventBus.$on('goBeforePage', this.goBeforePage)
-    this.$EventBus.$on('goAfterPage', this.goAfterPage)
-    this.$EventBus.$on('goLoadingPage', this.goLoadingPage)
-    this.$EventBus.$on('setSearchHistory', this.setSearchHistory)
-    this.$EventBus.$on('refreshMember', this.refreshMember)
-    this.$EventBus.$on('search', this.search)
-    const token = this.getToken()
-    this.backImg = localStorage.getItem("theme") != null ? localStorage.getItem("theme") : this.backImg
-    if(token !== null){
-      this.$http.get(`http://52.79.204.244/member?email=${token.email}`).then(res => {
-        this.$store.dispatch('SETMEMBER', res.data)
-        this.setCustomKeywords(res.data.email)
-        this.setSearchHistory(res.data.email)
-      })
-    } else {
-      // TODO anonymous@NAM 고치기
-      this.setMemberState('anonymous@NAM', '익명의 ' + animals[Math.floor(Math.random() * animals.length)] , null)
-      this.setCustomKeywords(`anonymous@NAM`)
-      this.setSearchHistory(`anonymous@NAM`)
-    }
   },
 }
 </script>
