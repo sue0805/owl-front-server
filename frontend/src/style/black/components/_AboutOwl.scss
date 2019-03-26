@@ -1,22 +1,25 @@
 @import '../utils/variables';
 
 .mapper-wrap{
-    background-color: $component-content-Back;
-    margin: 1em auto;
-    padding: 1em;
+    margin: 1em auto; padding: 1em;
     width: 95%;
     height: 90%;
     border: $component-content-border;
-    box-shadow: $component-content-boxShadow-Deep;
     border-radius: 6px;
+    box-shadow: $component-content-boxShadow;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: $component-content-Back;
 }
 
 .mapper-maintxt{
     font-size: 3em;
+    // border: 1px solid blue;
+    transition: all .3s ease-in-out;
 }
 
 .mapper-hr-grow{
-    -webkit-transition: width 1s ease-out;
+    -webkit-transition: width 1s ease-out; /* For Safari 3.1 to 6.0 */
     transition: width 1s  ease-out;
     width : 0%;
     margin-left: 0;
@@ -27,24 +30,82 @@
 }
 
 .mapper-content{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column;
+    margin: 0; padding: 0;
+    width: 100%;
+    height: max-content;
     color: $font-basic;
 }
 
 .mapper-content p{
+    margin: 0; padding: 0;
+    margin-top: 25px;
+    width: 80%;
+    text-align: center;
     font-size: 1.5em;
     font-weight: bold;
-    width: 80%;
-    margin: 1em auto;
+    word-break: keep-all;
 }
 
 .mapper-content ul{
-    margin: 1em 0 3em 0;
-    padding-inline-start: 18em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    margin: 0; padding: 0;
+    margin-top: 30px;
+    width: 100%;
+    height: max-content;
 }
 
 .mapper-content li{
-    list-style-type: circle !important;
-    margin: 10px;
-    cursor: default;
+    margin: 5px;
     padding: 5px;
+    width: 500px;
+    word-break: keep-all;
+    list-style-type: circle !important;
+    cursor: default;
+}
+@media only screen and (min-width: 320px) {
+    .mapper-maintxt{
+        width: 100%;
+        text-align: center;
+        font-size: 3em;
+        // border: 1px solid blue;
+    }
+    .mapper-content p{
+        min-width: 270px;
+    }
+    .mapper-content li{
+        width: 90%;
+        margin: 2px;
+    }
+    .mapper-content ul{
+        margin-top: 15px;
+    }
+}
+@media only screen and (min-width: 690px) {
+    .mapper-maintxt{
+        width: max-content;
+        text-align: inherit;
+        font-size: 3em;
+    }
+    .mapper-content p{
+        width: 80%;
+    }
+    .mapper-content li{
+        width: 90%;
+        margin: 5px;
+    }
+    .mapper-content ul{
+        margin-top: 30px;
+    }
+}
+@media only screen and (min-width: 1050px) {
+    .mapper-content li{
+        width: 500px;
+    }
 }

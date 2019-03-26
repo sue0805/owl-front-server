@@ -16,6 +16,7 @@
 .mapper-maintxt{
     font-size: 3em;
     // border: 1px solid blue;
+    transition: all .3s ease-in-out;
 }
 
 .mapper-hr-grow{
@@ -38,16 +39,16 @@
     width: 100%;
     height: max-content;
     color: $font-basic;
-    // border: 1px solid greenyellow;
 }
 
 .mapper-content p{
     margin: 0; padding: 0;
-    margin-top: 30px;
+    margin-top: 25px;
     width: 80%;
+    text-align: center;
     font-size: 1.5em;
     font-weight: bold;
-    // border: 1px solid skyblue;
+    word-break: keep-all;
 }
 
 .mapper-content ul{
@@ -57,16 +58,55 @@
     flex-flow: column;
     margin: 0; padding: 0;
     margin-top: 30px;
-    width: 90%;
+    width: 100%;
     height: max-content;
-    // border: 1px solid fuchsia;
 }
 
 .mapper-content li{
     margin: 5px;
     padding: 5px;
     width: 500px;
-    // border: 1px solid sandybrown;
+    word-break: keep-all;
     list-style-type: circle !important;
     cursor: default;
+}
+@media only screen and (min-width: 320px) {
+    .mapper-maintxt{
+        width: 100%;
+        text-align: center;
+        font-size: 3em;
+        // border: 1px solid blue;
+    }
+    .mapper-content p{
+        min-width: 270px;
+    }
+    .mapper-content li{
+        width: 90%;
+        margin: 2px;
+    }
+    .mapper-content ul{
+        margin-top: 15px;
+    }
+}
+@media only screen and (min-width: 690px) {
+    .mapper-maintxt{
+        width: max-content;
+        text-align: inherit;
+        font-size: 3em;
+    }
+    .mapper-content p{
+        width: 80%;
+    }
+    .mapper-content li{
+        width: 90%;
+        margin: 5px;
+    }
+    .mapper-content ul{
+        margin-top: 30px;
+    }
+}
+@media only screen and (min-width: 1050px) {
+    .mapper-content li{
+        width: 500px;
+    }
 }

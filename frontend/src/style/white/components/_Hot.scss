@@ -135,7 +135,9 @@
     overflow: hidden;
     border: $component-content-border;
 }
-
+.apexcharts-toolbar{
+    z-index: inherit;
+}
 .apexcharts-grid{
 }
 .apexcharts-svg{
